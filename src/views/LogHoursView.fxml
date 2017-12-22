@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="views.LogHoursViewController">
+    <stylesheets>
+        <URL value="@user.css" />
+    </stylesheets>
+   <children>
+      <VBox alignment="CENTER" layoutX="157.0" layoutY="32.0" prefHeight="600.0" prefWidth="800.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label alignment="CENTER" styleClass="header" text="Log Sales" />
+            <HBox prefHeight="343.0" prefWidth="760.0">
+               <children>
+                  <GridPane hgap="10.0" maxWidth="600.0" prefHeight="275.0" prefWidth="600.0" vgap="10.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="367.0" minWidth="10.0" prefWidth="148.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="590.0" minWidth="10.0" prefWidth="272.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="User ID" />
+                        <Label text="First Name " GridPane.rowIndex="1" />
+                        <Label text="Last Name" GridPane.rowIndex="2" />
+                        <Label text="Date Worked" GridPane.rowIndex="3" />
+                        <Label text="Sales Amount $" GridPane.rowIndex="4" />
+                        <DatePicker fx:id="datePicker" prefWidth="295.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label fx:id="userIDLabel" text="Label" GridPane.columnIndex="1" />
+                        <Label fx:id="firstNameLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="lastNameLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Spinner fx:id="hoursWorkedSpinner" editable="true" prefHeight="47.0" prefWidth="295.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                     </children>
+                  </GridPane>
+                  <LineChart fx:id="lineChart">
+                    <xAxis>
+                      <CategoryAxis fx:id="monthAxis" side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis fx:id="hourAxis" side="LEFT" />
+                    </yAxis>
+                  </LineChart>
+               </children>
+            </HBox>
+            <Label fx:id="errMsgLabel" prefHeight="31.0" prefWidth="678.0" text="Label" />
+            <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#saveButtonPushed" text="Log Sales" />
+                  <Button mnemonicParsing="false" onAction="#logoutButtonPushed" text="Logout" />
+                  <Button fx:id="backButton" mnemonicParsing="false" onAction="#cancelButtonPushed" text="Back" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>
